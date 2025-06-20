@@ -12,7 +12,7 @@ public class LogInPagePO {
     @FindBy(id = "email")
     public static WebElement EmailField;
 
-    @FindBy(name = "Password")
+    @FindBy(name = "login[password]")
     public static WebElement PasswordField;
 
     @FindBy(css = "#send2 > span")
@@ -36,14 +36,17 @@ public class LogInPagePO {
         PasswordField.sendKeys(Password);
     }
 
-    public void clickLogInButton(){
-        clickLogInButton();
-
-
-
-
-
+    public void ClickLogInButton(){
+        ClickSignInButton.click();
     }
+
+
+
+
+
+
+
+
 
 
 

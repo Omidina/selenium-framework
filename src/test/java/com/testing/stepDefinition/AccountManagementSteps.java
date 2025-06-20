@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 
 public class AccountManagementSteps {
 
-    private static final Logger log = LoggerFactory.getLogger(AccountManagementSteps.class);
+
     WebDriver driver = Hooks.driver;
 
     @Given("I am on create an account page")
@@ -25,13 +25,14 @@ public class AccountManagementSteps {
     }
 
     @When("I enter {string} {string} {string} {string} {string}")
-    public void iEnter(String FirstName, String LastName, String Email, String Password, String ConfirmPassword) {
+    public void iEnter(String FirstName, String LastName, String Email, String Password, String ConfirmPassword){
         CreateAccountPagePO createAccountPagePO = new CreateAccountPagePO(driver);
         createAccountPagePO.enterFirstName(FirstName);
         createAccountPagePO.enterLastName(LastName);
         createAccountPagePO.enterEmail(Email);
         createAccountPagePO.enterPassword(Password);
         createAccountPagePO.enterConfirmPassword(ConfirmPassword);
+
     }
 
     @And("I click on create an account")
@@ -70,17 +71,15 @@ public class AccountManagementSteps {
     @And("I click on log in button")
     public void iClickOnLogInButton() {
         LogInPagePO logInPagePO = new LogInPagePO(driver);
-        logInPagePO.clickLogInButton();
+        logInPagePO.ClickLogInButton();
     }
 
-    @Then("My Account page should be displayed")
-    public void myAccountPageShouldBeDisplayed(){
-        String ExpectedResult = "AccountLogIn";
+
+
+    @Then("Account is logged in successfully")
+    public void accountIsLoggedInSuccessfully() {
+        String ExpectedResult = "Customer Login";
         String ActualResult = driver.getTitle();
         Assert.assertEquals(ExpectedResult, ActualResult);
     }
-
-
-
-
 }
