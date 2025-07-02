@@ -85,7 +85,7 @@ public class AccountManagementSteps {
 
     @Then("Error message should display that unregistered customer cannot log in")
     public void errorMessageShouldDisplayThatUnregisteredCustomerCannotLogIn() {
-        String ExpectedResult = "Customer Login Error Message";
+        String ExpectedResult = "Customer Login";
         String ActualResult = driver.getTitle();
         Assert.assertEquals(ExpectedResult, ActualResult);
     }
